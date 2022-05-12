@@ -1,7 +1,7 @@
 // Copyright (c) 2022 Marshall All rights reserved
 //
 // Created by: Marshall
-// Created on: Apr 2022
+// Created on: May 2022
 // This file contains the JS functions for index.html
 
 /**
@@ -13,9 +13,32 @@ if (navigator.serviceWorker) {
   })
 }
 
+'use strict'
+
 /**
- * This function displays an alert.
+ * This function calculates long division
  */
 function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML = "<p>Hello, World!</p>"
+  // input
+  var firstInteger = document.getElementById("integer-one").value
+  var secondInteger = document.getElementById("integer-two").value
+
+  // process
+  var total = 0
+  let counter = 0
+  let secondIntegerInt = parseInt(secondInteger)
+  let firstIntegerInt = parseInt(firstInteger)
+
+  if (firstIntegerInt < 0 || secondIntegerInt < 0) {
+    document.getElementById("loop").innerHTML = "Please input a positive whole number!"
+  } else {
+      while (counter < secondIntegerInt) {
+      console.log = ("loop: " + counter)
+      total += firstIntegerInt - secondIntegerInt
+      firstIntegerInt = total
+      counter++
+    }
+    document.getElementById("loop").innerHTML = "The number is " + (total)
+  }
 }
+    
