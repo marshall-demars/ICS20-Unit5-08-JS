@@ -25,20 +25,33 @@ function myButtonClicked() {
 
   // process
   var total = 0
-  let counter = 0
-  let secondIntegerInt = parseInt(secondInteger)
-  let firstIntegerInt = parseInt(firstInteger)
+  var firstIntegerAsInt = parseInt(firstInteger)
+  var secondIntegerAsInt = parseInt(secondInteger)
+  var remainder = firstIntegerAsInt
 
-  if (firstIntegerInt < 0 || secondIntegerInt < 0) {
-    document.getElementById("loop").innerHTML = "Please input a positive whole number!"
-  } else {
-      while (counter < secondIntegerInt) {
-      console.log = ("loop: " + counter)
-      total += firstIntegerInt - secondIntegerInt
-      firstIntegerInt = total
-      counter++
+
+  if ((firstIntegerAsInt > 0) && (secondIntegerAsInt > 0)) {
+    while (remainder >= secondIntegerAsInt) {
+      remainder = remainder - secondIntegerAsInt
+      total++
     }
-    document.getElementById("loop").innerHTML = "The number is " + (total)
+  } else if ((firstIntegerAsInt < 0) && (secondIntegerAsInt < 0)) {
+    remainder = Math.abs(remainder)
+    secondIntegerAsInt = Math.abs(secondIntegerAsInt)
+    while (remainder >= secondIntegerAsInt) {
+      remainder = remainder - secondIntegerAsInt
+      total++
+    }
+  } else {
+    remainder = Math.abs(remainder)
+    secondIntegerAsInt = Math.abs(secondIntegerAsInt)
+    while (remainder >= secondIntegerAsInt) {
+      remainder = remainder - secondIntegerAsInt
+      total++
+    }
+    total = -Math.abs(total)
   }
+
+  // output
+  document.getElementById("loop").innerHTML = firstInteger + " ÷ " + secondInteger + " = " + total + " R " + remainder
 }
-    
